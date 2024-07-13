@@ -7,13 +7,11 @@ const downloadButton = document.getElementById("downloadButton");
 const squareSizeRange = document.getElementById("squareSizeRange");
 const squareSizeValue = document.getElementById("squareSizeValue");
 
-// Evento para ajustar o valor do quadrado de ponto cruz em tempo real
 squareSizeRange.addEventListener("input", function () {
   squareSizeValue.textContent = squareSizeRange.value;
   processImage();
 });
 
-// Evento de carregamento de arquivo
 fileInput.addEventListener("change", function (event) {
   const file = event.target.files[0];
   if (file) {
@@ -35,7 +33,6 @@ fileInput.addEventListener("change", function (event) {
           crossStitchCanvas.height
         );
 
-        // Desenha a imagem original no canvas original
         originalCtx.drawImage(
           img,
           0,
@@ -44,7 +41,7 @@ fileInput.addEventListener("change", function (event) {
           originalCanvas.height
         );
 
-        // Processa a imagem para gerar o padrão de ponto cruz
+        // Processa a imagem 
         processImage();
       };
       img.src = e.target.result;
@@ -53,7 +50,7 @@ fileInput.addEventListener("change", function (event) {
   }
 });
 
-// Função para processar a imagem e gerar o padrão de ponto cruz
+// Função que gera a imagenm
 function processImage() {
   const imageData = originalCtx.getImageData(
     0,
@@ -73,10 +70,8 @@ function processImage() {
   );
 
   // Tamanho do quadrado de ponto cruz (ajuste conforme necessário)
-  const squareSize = parseInt(squareSizeRange.value); // Obtém o tamanho do quadrado do input range
+  const squareSize = parseInt(squareSizeRange.value); 
 
-  // Paleta de cores de ponto cruz (cores escuras para o padrão de ponto cruz)
-  const crossStitchColors = ["#000000"]; // Apenas preto para o símbolo "X"
 
   // Itera pelos pixels da imagem
   for (let y = 0; y < originalCanvas.height; y += squareSize) {
@@ -88,23 +83,23 @@ function processImage() {
 
       // Desenha o símbolo de ponto cruz (X) com a cor do pixel original
       crossStitchCtx.fillStyle = `rgb(${r}, ${g}, ${b})`;
-      crossStitchCtx.font = `${squareSize}px Arial`;
+      crossStitchCtx.font = `${squareSize}px sans-serif`;
+      crossStitchCtx.fontWeight = 'bold';
+
       crossStitchCtx.fillText("X", x, y + squareSize);
     }
   }
 
-  // Mostra o botão de download da imagem convertida
+  // Botão Download
   downloadButton.style.display = "block";
-  // Remove event listener anterior para evitar múltiplos registros
   downloadButton.removeEventListener("click", handleDownload);
-  // Adiciona o event listener para o download da imagem convertida
   downloadButton.addEventListener("click", handleDownload);
 }
 
 // Função para lidar com o evento de download da imagem
 function handleDownload() {
   const fileName = prompt("Coloque o nome do arquivo):", "padrao_ponto_cruz");
-  if (fileName === null) return; // Cancelado pelo usuário
+  if (fileName === null) return; 
 
   const dataURL = crossStitchCanvas.toDataURL("image/png");
   const a = document.createElement("a");

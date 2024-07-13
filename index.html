@@ -22,15 +22,20 @@
     <!-- Range para ajuste do tamanho do quadrado de ponto cruz -->
     <div class="form-group mt-3">
       <label for="squareSizeRange">Tamanho do Quadrado de Ponto Cruz:</label>
-      <input type="range" id="squareSizeRange" class="form-control-range" min="1" max="20" step="1" value="10" >
-      <span id="squareSizeValue">10</span>
+      <input type="range" id="squareSizeRange" class="form-control-range" min="1" max="10" step="1" value="5" >
+      <span id="squareSizeValue">5</span>
     </div>
 
     <!-- Container para os canvases -->
     <div id="canvasContainer" class="row justify-content-center mb-3">
-      <canvas id="originalCanvas" class="img-canvas col-lg-6"></canvas>
-      <canvas id="crossStitchCanvas" class="img-canvas col-lg-6"></canvas>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <canvas id="originalCanvas" class="img-canvas" width="100%" height="auto"></canvas>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <canvas id="crossStitchCanvas" class="img-canvas" width="100%" height="auto"></canvas>
+      </div>
     </div>
+    
     
     <!-- Botão de download da imagem convertida -->
     <button id="downloadButton" class="btn btn-primary btn-block btn-download mt-3" style="display: none;">Download Imagem Convertida</button>
