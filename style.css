@@ -1,0 +1,75 @@
+/* Estilo geral para o body e elementos básicos */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #9ba0a2; /* Cor de fundo */
+  padding: 20px;
+}
+
+.container {
+  max-width: auto; /* Aumenta a largura máxima do conteúdo para PCs */
+  margin: 10px auto; /* Centraliza o conteúdo na página */
+  background-color: #fff; /* Fundo do container */
+  padding: 20px;
+  border-radius: 10px; /* Borda arredondada */
+  box-shadow: 0 0 10px rgba(0, 1, 0, 1); /* Sombra */
+}
+
+h2 {
+  text-align: center; /* Centraliza o título */
+}
+
+/* Estilo para o input range */
+input[type="range"] {
+  width: 100%;
+  height: 100%; /* Altura padrão para desktop */
+  -webkit-appearance: none; /* Remove o estilo padrão do WebKit */
+  appearance: none;
+  background: #ddd; /* Cor de fundo */
+  outline: none; /* Remove o contorno padrão */
+  border-radius: 20px; /* Borda arredondada */
+  padding: 5px; /* Espaçamento interno */
+  margin-top: 10px; /* Espaçamento superior */
+}
+
+/* Estilo para o track (barra) do input range */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 28px; /* Altura da barra */
+  background: #6df381; /* Cor do track */
+  border-radius: 9px; /* Borda arredondada */
+}
+
+/* Estilo para o thumb (alça) do input range */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove o estilo padrão do WebKit */
+  appearance: none;
+  width: 40px; /* Largura padrão para desktop */
+  height: 40px; /* Altura padrão para desktop */
+  background: #007bff; /* Cor da alça */
+  border-radius: 50%; /* Formato circular */
+  cursor: pointer; /* Cursor do mouse */
+}
+
+/* Media query para ajustes em dispositivos móveis */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px; /* Reduz o espaçamento interno */
+  }
+  
+  input[type="range"] {
+    height: 30px; /* Altura reduzida para dispositivos móveis */
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    width: 30px; /* Largura reduzida para dispositivos móveis */
+    height: 30px; /* Altura reduzida para dispositivos móveis */
+  }
+  
+  .img-canvas {
+    width: auto; /* Garante que os canvases ocupem toda a largura disponível */
+    max-width: auto; /* Limita o tamanho máximo dos canvases */
+    height: auto; /* Altura automática para manter a proporção */
+    display: block; /* Garante que os canvases se comportem como elementos de bloco */
+    margin-bottom: 10px; /* Espaçamento inferior entre os canvases */
+  }
+}
